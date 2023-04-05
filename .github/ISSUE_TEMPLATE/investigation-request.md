@@ -1,7 +1,7 @@
 ---
 name: Investigation request
-about: Describe this issue template's purpose here.
-title: "[Investigation]"
+about: Describe this task investigation purpose here.
+title: DFxxx - [Investigation]
 labels: Investigation
 assignees: ''
 
