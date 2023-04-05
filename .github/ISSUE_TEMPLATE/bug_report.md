@@ -1,8 +1,8 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: DFxxx - [BUG]
-labels: ''
+title: 'DFxxx - '
+labels: Bug
 assignees: ''
 
 ---
