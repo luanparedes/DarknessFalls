@@ -1,7 +1,7 @@
 ---
 name: Improvement request
 about: Suggest an improvement idea for this project
-title: 'DFxxx - '
+title: 'DF - '
 labels: Improvement
 assignees: ''
 

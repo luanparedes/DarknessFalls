@@ -1,7 +1,7 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: 'DFxxx - '
+title: 'DF - '
 labels: Story
 assignees: ''
 

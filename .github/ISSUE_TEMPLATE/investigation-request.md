@@ -1,7 +1,7 @@
 ---
 name: Investigation request
 about: Describe this task investigation purpose here.
-title: 'DFxxx - '
+title: 'DF - '
 labels: Investigation
 assignees: ''
 
