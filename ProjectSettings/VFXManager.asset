@@ -12,7 +12,4 @@ VFXManager:
   m_MaxDeltaTime: 0.05
   m_CompiledVersion: 0
   m_RuntimeVersion: 0
-<<<<<<< HEAD
   m_RuntimeResources: {fileID: 0}
-=======
->>>>>>> a59984a662070556cee476f2d4aaec6a9c73c2f9
