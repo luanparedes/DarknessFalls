@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
     #endregion
 
+    #region Main Methods
+
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -28,42 +30,44 @@ public class Player : MonoBehaviour
         UpdateInitialValues();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         Move();
         Jump();
     }
 
+    #endregion
+
+    #region Methods
+
     private void Move()
     {
-
-        //TODO - We need to do animations to work fine
         movement = Input.GetAxis("Horizontal");
-
         rig.velocity = new Vector2(movement * speed, rig.velocity.y);
 
-        if (movement > 0)
-        {
-            anim.SetInteger("transition", 1);
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        if (movement < 0)
-        {
-            anim.SetInteger("transition", 1);
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
+        //TODO - We need to do animations to work fine
 
-        if (movement == 0)
-            anim.SetInteger("transition", 0);
+        //if (movement > 0)
+        //{
+        //    anim.SetInteger("transition", 1);
+        //    transform.eulerAngles = new Vector3(0, 0, 0);
+        //}
+        //if (movement < 0)
+        //{
+        //    anim.SetInteger("transition", 1);
+        //    transform.eulerAngles = new Vector3(0, 180, 0);
+        //}
+
+        //if (movement == 0)
+        //    anim.SetInteger("transition", 0);
     }
 
     private void Jump()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (!isJumping)
             {
-                anim.SetInteger("transition", 2);
                 rig.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 isJumping = true;
             }
@@ -77,6 +81,20 @@ public class Player : MonoBehaviour
         hp = 200;
         mp = 50;
         speed = 5;
-        jumpForce = 3;
+        jumpForce = 12;
     }
+
+    #endregion
+
+    #region Events
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == 6)
+        {
+            isJumping = false;
+        }
+    }
+
+    #endregion
 }
