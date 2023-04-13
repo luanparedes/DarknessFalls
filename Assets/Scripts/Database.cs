@@ -6,17 +6,31 @@ using UnityEngine.Device;
 
 public class Database : MonoBehaviour
 {
-    private static string urlDataBase = $"URI=file:C:/Users/luans/OneDrive/Área de Trabalho/Developer/Softwares/Unity/DarknessFalls/Assets/DarknessFallsSQLite.db";
+    private static string urlDataBase = $"URI=file:{UnityEngine.Application.dataPath}/DarknessFallsSQLite.db";
 
-    public static void CreatePlayer(string name, int level, int hp, int mp, int speed, int jumpForce)
+    public static void CreatePlayer(string namePlayer, int level, int hp, int mp, int speed, int jumpForce)
+    {
+        string sql = $"INSERT INTO player(id, name, level, hp, mp, speed, jump_force) VALUES(1, '{namePlayer}', {level}, {hp}, {mp}, {speed}, {jumpForce})";
+
+        ExecuteSQL(sql);
+    }
+
+    public static void UpdatePlayer(int level, int hp, int mp, int speed, int jumpForce)
+    {
+        string sql = "UPDATE player " +
+                     $"SET level = {level}, hp = {hp}, mp = {mp}, speed = {speed}, jump_force = {jumpForce} " +
+                     "WHERE id = 1";
+
+        ExecuteSQL(sql);
+    }
+
+    private static void ExecuteSQL(string sql)
     {
         IDbConnection _connection = new SqliteConnection(urlDataBase);
         IDbCommand _command = _connection.CreateCommand();
 
         _connection.Open();
 
-        string sql = $"INSERT INTO player(name, level, hp, mp, speed, jump_force) VALUES({name}, {level}, {hp}, {mp}, {speed}, {jumpForce})";
-        
         _command.CommandText = sql;
         _command.ExecuteNonQuery();
 
