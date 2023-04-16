@@ -76,12 +76,7 @@ public class Player : MonoBehaviour
 
     private void UpdateInitialValues()
     {
-        //TODO - After database defined, these values will receive directly from the database.
-        level = 1;
-        hp = 200;
-        mp = 50;
-        speed = 5;
-        jumpForce = 12;
+        Database.LoadPlayerInfo(this);
     }
 
     #endregion

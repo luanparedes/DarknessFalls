@@ -12,9 +12,6 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        Database.CreatePlayer("Luan", 1, 200, 50, 5, 12);
-        Database.UpdatePlayer(50, 3000, 750, 8, 18);
-
         instance = this;
     }
 
